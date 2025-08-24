@@ -13,5 +13,5 @@ class AppColors{
   //Text Colors
   static Color getPrimaryTextColor() => Color(0XFFFFFFFF);  //white
   static Color getSecondaryTextColor() => Color(0XFF121312);    //black
-  static Color getAccentTextColor() => Color(0XFFF6BD00);
+
 }

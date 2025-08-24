@@ -12,7 +12,7 @@ class AppTheming{
         size: 21,
       ),
       titleTextStyle: GoogleFonts.roboto(
-        color: AppColors.getAccentTextColor(),
+        color: AppColors.getAccentColor(),
         fontSize: 16.sp,
         fontWeight: FontWeight.w400,
         letterSpacing: 0,
