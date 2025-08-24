@@ -1,8 +1,10 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:movie_app/Screens/introduction_screen.dart';
-
+import 'package:movie_app/Core/Theme/app_theaming.dart';
+import 'package:movie_app/Screens/Introduction%20Screen/introduction_screen.dart';
+import 'package:movie_app/Screens/Login%20Screen/login_screen.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'firebase_options.dart';
 
 void main() async{
@@ -21,17 +23,21 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-      designSize: const Size(430,932),
+      designSize: const Size(360, 690),
       minTextAdapt: true,
       splitScreenMode: true,
-      child: MaterialApp(
-        title: 'Movie App',
-        theme: ThemeData(),
-        routes: {
-          IntroductionScreen.routeName : (context) => IntroductionScreen()
-        },
-        initialRoute: IntroductionScreen.routeName,
-      ),
+      builder: (context, child) {
+        return MaterialApp(
+          debugShowCheckedModeBanner: false,
+          title: 'Movie App',
+          theme: AppTheming.theme,
+          routes: {
+            IntroductionScreen.routeName: (context) => IntroductionScreen(),
+            LoginScreen.routeName: (context) => LoginScreen(),
+          },
+          initialRoute: LoginScreen.routeName,
+        );
+      },
     );
   }
 }
