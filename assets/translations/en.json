@@ -1,0 +1,21 @@
+
+{
+  "onboarding_introduction_title" : "Personalize Your Experience",
+  "onboarding_introduction_subtitle" :"Choose your preferred theme and language to get started with a comfortable,tailored experience that suits your style.",
+  "language_text" : "Language",
+  "theme_text" : "Theme",
+  "onboarding_button": "Let’s Start",
+  "name_text": "Name",
+  "email_text": "Email",
+  "password_text": "Password",
+  "re_password_text": "Re Password",
+  "forget_password_text": "Forget Password",
+  "login_text": "Login",
+  "no_account_text": "Don’t Have Account ? ",
+  "already_have_account_text": "Already Have Account ?",
+  "create_account_text": "Create Account",
+  "or_text": "Or",
+  "google_login_text": "Login With Google",
+  "register_heading": "Register"
+
+}
