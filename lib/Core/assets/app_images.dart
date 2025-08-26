@@ -1,6 +1,4 @@
 abstract class AppImages {
-
-
   static const String Movies_posters = 'assets/images/movie_posters.png';
   static const String onboarding_image2 = 'assets/images/onboarding_image2.png';
   static const String onboarding_image3 = 'assets/images/onboarding_image3.png';

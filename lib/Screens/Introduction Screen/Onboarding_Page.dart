@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:movie_app/Screens/Introduction%20Screen/Onboarding_Data.dart';
 
-
 class Onboardingpage extends StatelessWidget {
-  const Onboardingpage({super.key, required this.onboardingdata,this.onButtonPressed,this.onBackPressed,this.buttonText,this.pageIndex});
+  const Onboardingpage({
+    super.key,
+    required this.onboardingdata,
+    this.onButtonPressed,
+    this.onBackPressed,
+    this.buttonText,
+    this.pageIndex,
+  });
   final OnBoarding_Data onboardingdata;
   final VoidCallback? onButtonPressed;
   final VoidCallback? onBackPressed;
@@ -18,10 +24,7 @@ class Onboardingpage extends StatelessWidget {
       alignment: Alignment.bottomCenter,
       children: [
         Positioned.fill(
-          child: Image.asset(
-            onboardingdata.imagepath,
-            fit: BoxFit.cover,
-          ),
+          child: Image.asset(onboardingdata.imagepath, fit: BoxFit.cover),
         ),
         Positioned(
           bottom: 0,
@@ -30,8 +33,21 @@ class Onboardingpage extends StatelessWidget {
           child: Container(
             width: double.infinity,
 
-            decoration:  pageIndex==0?BoxDecoration(gradient: LinearGradient(colors: [Colors.transparent,Color(0xff121312).withOpacity(0.10),Color(0xff121312)]),borderRadius: BorderRadius.circular(16)):  BoxDecoration(  color:
-            Color(0xff121312),borderRadius: BorderRadius.circular(16)),
+            decoration: pageIndex == 0
+                ? BoxDecoration(
+                    gradient: LinearGradient(
+                      colors: [
+                        Colors.transparent,
+                        Color(0xff121312).withOpacity(0.10),
+                        Color(0xff121312),
+                      ],
+                    ),
+                    borderRadius: BorderRadius.circular(16),
+                  )
+                : BoxDecoration(
+                    color: Color(0xff121312),
+                    borderRadius: BorderRadius.circular(16),
+                  ),
             padding: EdgeInsets.all(screenWidth * 0.04),
             child: Column(
               mainAxisSize: MainAxisSize.min,
@@ -40,9 +56,13 @@ class Onboardingpage extends StatelessWidget {
                 Text(
                   textAlign: TextAlign.center,
                   onboardingdata.title,
-                  style: TextStyle(color: Colors.white, fontSize: screenHeight * 0.03,fontWeight: FontWeight.bold),
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: screenHeight * 0.03,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
-              SizedBox(height: screenHeight * 0.02),
+                SizedBox(height: screenHeight * 0.02),
                 if (onboardingdata.sub_title != null)
                   Text(
                     textAlign: TextAlign.start,
@@ -53,30 +73,45 @@ class Onboardingpage extends StatelessWidget {
                 SizedBox(
                   width: double.infinity,
                   child: ElevatedButton(
-
                     onPressed: onButtonPressed,
-                    child: Text(buttonText??"Next",style: TextStyle(fontSize: screenHeight * 0.03,color: Colors.black),),
-                    style: ElevatedButton.styleFrom(backgroundColor: Color(0xffF6BD00),minimumSize: Size(double.infinity,screenHeight * 0.07),)
+                    child: Text(
+                      buttonText ?? "Next",
+                      style: TextStyle(
+                        fontSize: screenHeight * 0.03,
+                        color: Colors.black,
+                      ),
+                    ),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Color(0xffF6BD00),
+                      minimumSize: Size(double.infinity, screenHeight * 0.07),
+                    ),
                   ),
-
                 ),
 
-                onBackPressed!=null
-                    ?
-                SizedBox(
-                  width: double.infinity,
-                  child: ElevatedButton(
-                    onPressed: onBackPressed,
-                    child: Text("back",style: TextStyle(fontSize: screenHeight * 0.03,color: Color(0xffF6BD00))),
-                    style: ElevatedButton.styleFrom(backgroundColor: Color(0xff121312),side: BorderSide(color: Color(0xffF6BD00))),
-                  ),
-                ):SizedBox.shrink()
+                onBackPressed != null
+                    ? SizedBox(
+                        width: double.infinity,
+                        child: ElevatedButton(
+                          onPressed: onBackPressed,
+                          child: Text(
+                            "back",
+                            style: TextStyle(
+                              fontSize: screenHeight * 0.03,
+                              color: Color(0xffF6BD00),
+                            ),
+                          ),
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Color(0xff121312),
+                            side: BorderSide(color: Color(0xffF6BD00)),
+                          ),
+                        ),
+                      )
+                    : SizedBox.shrink(),
               ],
             ),
           ),
         ),
       ],
     );
-
   }
 }
