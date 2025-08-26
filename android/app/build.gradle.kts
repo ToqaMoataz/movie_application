@@ -11,7 +11,7 @@ plugins {
 android {
     namespace = "com.example.movie_app"
     compileSdk = flutter.compileSdkVersion
-    ndkVersion = "28.0.12433566"
+    ndkVersion = "27.1.12297006"
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
