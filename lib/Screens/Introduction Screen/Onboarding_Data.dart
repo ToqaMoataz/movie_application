@@ -1,4 +1,5 @@
 import 'package:movie_app/Core/assets/app_images.dart';
+import 'package:movie_app/Core/local_data.dart';
 
 class OnBoarding_Data {
   String imagepath;

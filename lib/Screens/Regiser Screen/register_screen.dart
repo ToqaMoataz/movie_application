@@ -6,6 +6,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:movie_app/Core/assets/app_images.dart';
 import 'package:movie_app/Core/base.dart';
 import 'package:movie_app/Core/local_data.dart';
 import 'package:movie_app/Screens/Regiser%20Screen/register_connector.dart';
@@ -30,7 +31,7 @@ class _RegisterScreenState extends BaseView<RegisterScreen,RegisterViewModel> im
   String? _selectedImage;
   final _formKey = GlobalKey<FormState>();
 
-  List<String> profileImages = AppData.getUserImages();
+  List<String> profileImages = AppImages.getUserImages();
 
   bool passwordVisible = false;
   bool rePasswordVisible = false;
