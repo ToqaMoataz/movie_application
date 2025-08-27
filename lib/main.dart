@@ -6,7 +6,8 @@ import 'package:movie_app/Core/Theme/app_theaming.dart';
 import 'package:movie_app/Screens/Introduction%20Screen/introduction_screen.dart';
 import 'package:movie_app/Screens/Login%20Screen/login_screen.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
-import 'package:movie_app/Screens/Regiser%20Screen/registee_screen.dart';
+import 'package:movie_app/Screens/Regiser%20Screen/register_screen.dart';
+import 'Screens/Forget Password Screen/forget_password_screen.dart';
 import 'firebase_options.dart';
 
 void main() async{
@@ -19,7 +20,7 @@ void main() async{
   runApp(
       EasyLocalization(
           supportedLocales: [Locale('en'), Locale('ar')],
-          path: 'assets/translations', // <-- change the path of the translation files
+          path: 'assets/translations',
           fallbackLocale: Locale('en'),
           child: const MyApp()
       )
@@ -47,7 +48,11 @@ class MyApp extends StatelessWidget {
           routes: {
             IntroductionScreen.routeName: (context) => IntroductionScreen(),
             RegisterScreen.routeName: (context) => RegisterScreen(),
-            LoginScreen.routeName: (context) => LoginScreen()
+            LoginScreen.routeName: (context) => LoginScreen(),
+            ForgetPasswordScreen.routeName: (context) => ForgetPasswordScreen(),
+            // HomeScreen.routeName: (context) => HomeScreen(),
+            // SearchScreen.routeName: (context) => SearchScreen(),
+            // MovieDetailsScreen.routeName: (context) => MovieDetailsScreen()
           },
           initialRoute: LoginScreen.routeName,
         );

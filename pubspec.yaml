@@ -23,6 +23,12 @@ dependencies:
   google_fonts: ^6.2.1
   flutter_native_splash: ^2.4.6
   easy_localization: ^3.0.8
+  carousel_slider: ^5.1.1
+  provider: ^6.1.5+1
+  google_sign_in: ^6.1.0
+  #api packages
+  dio: ^5.9.0
+  talker_dio_logger: ^5.0.0
 
 dev_dependencies:
   flutter_test:
