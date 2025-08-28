@@ -56,6 +56,7 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
   void initState() {
     // TODO: implement initState
     super.initState();
+
     pageController.addListener(() {
       currentIndex = pageController.page?.toInt() ?? 0;
       setState(() {});

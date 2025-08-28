@@ -5,6 +5,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movie_app/Core/Theme/app_theaming.dart';
 import 'package:movie_app/Screens/Introduction%20Screen/introduction_screen.dart';
 import 'package:movie_app/Screens/Login_Screen/login_screen.dart';
+import 'package:movie_app/Screens/Profile_screen.dart';
 
 import 'Core/helper/preferences_helper.dart';
 import 'firebase_options.dart';
@@ -52,10 +53,14 @@ class MyApp extends StatelessWidget {
             // RegisterScreen.routeName: (context) => RegisterScreen(),
             //LoginScreen.routeName: (context) => LoginScreen()
             LoginScreen.routename: (context) => LoginScreen(),
+            ProfileScreen.routename: (context) => ProfileScreen()
           },
-          initialRoute: initialOnboardingSeen
-              ? LoginScreen.routename
-              : IntroductionScreen.routename,
+            initialRoute: ProfileScreen.routename
+
+
+          //initialOnboardingSeen
+          //  ? LoginScreen.routename
+          //: IntroductionScreen.routename,
         );
       },
     );
