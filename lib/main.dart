@@ -5,7 +5,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movie_app/Core/Theme/app_theaming.dart';
 import 'package:movie_app/Screens/Introduction%20Screen/introduction_screen.dart';
 import 'package:movie_app/Screens/Login%20Screen/login_screen.dart';
-import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'package:movie_app/Screens/profile_tab.dart';
+
 import 'Screens/Regiser Screen/register_screen.dart';
 import 'firebase_options.dart';
 
@@ -47,9 +48,13 @@ class MyApp extends StatelessWidget {
           routes: {
             IntroductionScreen.routeName: (context) => IntroductionScreen(),
             RegisterScreen.routeName: (context) => RegisterScreen(),
-            LoginScreen.routeName: (context) => LoginScreen()
+            LoginScreen.routeName: (context) => LoginScreen(),
+            ProfileScreen.routename: (context) => ProfileScreen()
           },
-          initialRoute: LoginScreen.routeName,
+            initialRoute: ProfileScreen.routename
+
+
+          //LoginScreen.routeName,
         );
       },
     );
