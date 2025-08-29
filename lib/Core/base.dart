@@ -2,7 +2,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:movie_app/Core/widgets.dart';
 
-import '../Screens/Home Screen/home_Screen.dart';
+//import '../Screens/Home Screen/home_Screen.dart';
 
 class BaseViewModel<T extends BaseConnector> extends ChangeNotifier{
   T? connector;

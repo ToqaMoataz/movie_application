@@ -7,15 +7,15 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:movie_app/Core/Theme/app_colors.dart';
 import 'package:movie_app/Core/base.dart';
-import 'package:movie_app/Core/widgets.dart';
-import 'package:movie_app/Firebase/firebase_manager.dart';
 import 'package:movie_app/Screens/Forget%20Password%20Screen/forget_password_screen.dart';
+import 'package:movie_app/Screens/Home/tabs/Home_tab.dart';
 import 'package:movie_app/Screens/Login%20Screen/login_connector.dart';
 import 'package:movie_app/Screens/Login%20Screen/login_viewModel.dart';
 import 'package:movie_app/Screens/Regiser%20Screen/register_screen.dart';
 import 'package:provider/provider.dart';
 
-import '../Home Screen/home_Screen.dart';
+
+//import '../Home Screen/home_Screen.dart';
 
 class LoginScreen extends StatefulWidget {
   static const String routeName="loginScreen";
@@ -398,7 +398,7 @@ class _LoginScreenState extends BaseView<LoginScreen,LoginViewModel> implements 
 
   @override
   goToHome() {
-    Navigator.pushReplacementNamed(context, HomeScreen.routeName);
+    Navigator.pushReplacementNamed(context, HomeTab.routeName);
   }
 
 
