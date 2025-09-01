@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../../../../../App Components/movie_card.dart';
+import '../../../../../../Core/assets/App Components/movie_card.dart';
 import '../MovieDetailsScreen cubit/cubit.dart';
 import '../MovieDetailsScreen cubit/states.dart';
 import '../movie_details_screen.dart';

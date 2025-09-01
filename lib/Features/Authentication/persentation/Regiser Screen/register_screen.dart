@@ -7,14 +7,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:movie_app/Core/assets/app_images.dart';
-import 'package:movie_app/Core/base.dart';
-import 'package:movie_app/Core/local_data.dart';
-import 'package:movie_app/Screens/Regiser%20Screen/register_connector.dart';
-import 'package:movie_app/Screens/Regiser%20Screen/register_viewModel.dart';
+import 'package:movie_app/Core/MVVM%20Base/base.dart';
+import 'package:movie_app/Features/Authentication/persentation/Regiser%20Screen/register_connector.dart';
+import 'package:movie_app/Features/Authentication/persentation/Regiser%20Screen/register_viewModel.dart';
+import 'package:movie_app/Features/HomeScreen/data/local_data.dart';
 import 'package:provider/provider.dart';
-
-import '../../Core/Theme/app_colors.dart';
-import '../../Models/user_model.dart';
+import '../../../../Core/Models/user_model.dart';
+import '../../../../Core/Theme/app_colors.dart';
 import '../Login Screen/login_screen.dart';
 
 class RegisterScreen extends StatefulWidget {

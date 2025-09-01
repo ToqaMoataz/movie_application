@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:movie_app/Core/Theme/app_colors.dart';
-import '../../../../../../../App Components/movie_card.dart';
+import '../../../../../../../Core/assets/App Components/movie_card.dart';
 import '../../../../HomeScreen cubit/cubit.dart';
 import '../../../../HomeScreen cubit/state.dart';
 import '../../../Movie Details Screen/movie_details_screen.dart';

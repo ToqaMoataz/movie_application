@@ -1,0 +1,19 @@
+[33m5164549[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mhome-screen-init-feature[m[33m)[m Merge remote-tracking branch 'origin/feature_profile_tab' into home-screen-init-feature
+[33mffe4d02[m[33m ([m[1;31morigin/home-screen-init-feature[m[33m)[m home screen init
+[33mf3fc901[m home screen init
+[33m93d8f67[m add movie card
+[33mbf28ced[m[33m ([m[1;31morigin/feature_profile_tab[m[33m)[m Profile_tab
+[33m89571da[m modification
+[33m70303a2[m[33m ([m[1;32mmovie_details_screen[m[33m)[m modification
+[33m01f245e[m[33m ([m[1;31morigin/authentication_feature[m[33m)[m auth screens
+[33m82e7035[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmaster[m[33m)[m modify localization
+[33m710d84f[m modify localization
+[33mf2d572b[m localization
+[33m901aad9[m edit AppColors
+[33m703ea4f[m modify splash screen
+[33mb447dde[m App theming
+[33m24ddf7a[m App theming
+[33m7a9180a[m modification
+[33m930f6ce[m edit main
+[33mfa4aa75[m add screenutil
+[33m4e90d65[m Initial commit

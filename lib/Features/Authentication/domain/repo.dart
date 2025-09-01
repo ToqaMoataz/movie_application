@@ -1,8 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
-import '../../../Firebase/firebase_manager.dart';
-import '../../../Models/user_model.dart';
+import '../../../Core/Firebase/firebase_manager.dart';
+import '../../../Core/Models/user_model.dart';
 
 
 abstract class AuthRepository{
@@ -13,6 +13,9 @@ abstract class AuthRepository{
   Future<void> addUser(UserModel user);
   Future<void> register({required UserModel user, required String password});
 }
+
+
+
 class AuthRepositoryImplementation implements AuthRepository{
   @override
   Future<void> addUser(UserModel user) async {
@@ -40,13 +43,17 @@ class AuthRepositoryImplementation implements AuthRepository{
 
   @override
   Future<void> register({required UserModel user, required String password}) async {
-    final credential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
-      email: user.email,
-      password: password,
-    );
-    //credential.user!.sendEmailVerification();
-    user.id=credential.user!.uid;
-    await addUser(user);
+    try {
+      final credential = await FirebaseAuth.instance
+          .createUserWithEmailAndPassword(
+        email: user.email,
+        password: password,
+      );
+      user.id = credential.user!.uid;
+      await addUser(user);
+    } on FirebaseAuthException catch (e) {
+      rethrow;
+    }
   }
 
   @override

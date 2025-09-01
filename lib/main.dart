@@ -3,10 +3,10 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movie_app/Core/Theme/app_theaming.dart';
-import 'package:movie_app/Screens/Introduction%20Screen/introduction_screen.dart';
-import 'package:movie_app/Screens/Login%20Screen/login_screen.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
-import 'Screens/Regiser Screen/register_screen.dart';
+import 'Features/Authentication/persentation/Login Screen/login_screen.dart';
+import 'Features/Authentication/persentation/Regiser Screen/register_screen.dart';
+import 'Features/onboarding/persentation/Introduction Screen/introduction_screen.dart';
 import 'firebase_options.dart';
 
 void main() async{

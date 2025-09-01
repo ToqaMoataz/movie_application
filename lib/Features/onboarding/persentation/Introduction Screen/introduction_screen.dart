@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:movie_app/Screens/Introduction%20Screen/Onboarding_Data.dart';
-import 'package:movie_app/Screens/Introduction%20Screen/Onboarding_Page.dart';
-
-
-import '../../Core/helper/preferences_helper.dart';
-import '../Login Screen/login_screen.dart';
+import 'package:movie_app/Features/onboarding/data/Onboarding_Data.dart';
+import '../../../Authentication/persentation/Login Screen/login_screen.dart';
+import '../../domain/helper/preferences_helper.dart';
+import 'Onboarding_Page.dart';
 
 class IntroductionScreen extends StatefulWidget {
   static const String routeName = "introductionscreen";

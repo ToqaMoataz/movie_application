@@ -2,7 +2,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie_app/Features/HomeScreen/persentation/HomeScreen cubit/state.dart';
 
 import '../../../../../../Core/Models/MoviesResponse.dart';
-import '../../../../Core/local_data.dart';
+import '../../data/local_data.dart';
 import '../../domain/repository/repo.dart';
 
 class HomeCubit extends Cubit<HomeState> {

@@ -1,11 +1,12 @@
 
 import 'package:flutter/cupertino.dart';
-import 'package:movie_app/Core/widgets.dart';
+import 'package:movie_app/Features/Authentication/domain/repo.dart';
 
-import '../Screens/Home Screen/home_Screen.dart';
+import '../assets/App Components/widgets.dart';
 
 class BaseViewModel<T extends BaseConnector> extends ChangeNotifier{
   T? connector;
+  AuthRepository repo=AuthRepositoryImplementation();
 }
 
 abstract class BaseConnector{
