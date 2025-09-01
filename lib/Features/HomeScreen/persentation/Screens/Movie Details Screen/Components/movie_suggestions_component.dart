@@ -1,0 +1,51 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../../../../../Core/assets/App Components/movie_card.dart';
+import '../MovieDetailsScreen cubit/cubit.dart';
+import '../MovieDetailsScreen cubit/states.dart';
+import '../movie_details_screen.dart';
+class MovieSuggestionsComponent extends StatelessWidget {
+  const MovieSuggestionsComponent({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<MovieDetailsCubit, MovieDetailsStates>(
+      builder: (context, state) {
+        var suggestion = MovieDetailsCubit.get(context).movieSuggestions?.data;
+
+        if (suggestion == null || suggestion.movies == null || suggestion.movies!.isEmpty) {
+          return const SizedBox.shrink();
+        }
+
+        return GridView.builder(
+          shrinkWrap: true,
+          physics: const NeverScrollableScrollPhysics(),
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2,
+            mainAxisSpacing: 8,
+            crossAxisSpacing: 8,
+            childAspectRatio: 2 / 3,
+          ),
+          itemCount: suggestion.movies!.length,
+          itemBuilder: (context, index) {
+            final movie = suggestion.movies![index];
+            return GestureDetector(
+              onTap: (){
+                Navigator.pushNamed(
+                  context,
+                  MovieDetailsScreen.routeName,
+                  arguments: movie.id,
+                );
+              },
+              child: MovieCard(
+                rating: movie.rating ?? 0.0,
+                imgURL: movie.mediumCoverImage ?? "",
+              ),
+            );
+          },
+        );
+      },
+    );
+  }
+}
+

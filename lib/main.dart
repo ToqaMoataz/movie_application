@@ -6,7 +6,6 @@ import 'package:movie_app/Core/Theme/app_theaming.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'Features/Authentication/persentation/Login Screen/login_screen.dart';
 import 'Features/Authentication/persentation/Regiser Screen/register_screen.dart';
-import 'Features/HomeScreen/persentation/Screens/Home Screen/home_Screen.dart';
 import 'Features/onboarding/persentation/Introduction Screen/introduction_screen.dart';
 import 'firebase_options.dart';
 
@@ -48,8 +47,7 @@ class MyApp extends StatelessWidget {
           routes: {
             IntroductionScreen.routeName: (context) => IntroductionScreen(),
             RegisterScreen.routeName: (context) => RegisterScreen(),
-            LoginScreen.routeName: (context) => LoginScreen(),
-
+            LoginScreen.routeName: (context) => LoginScreen()
           },
           initialRoute: LoginScreen.routeName,
         );

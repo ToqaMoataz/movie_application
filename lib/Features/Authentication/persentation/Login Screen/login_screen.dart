@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:movie_app/Core/Theme/app_colors.dart';
-import 'package:movie_app/Core/MVVM%20Base%20Class/base.dart';
+import 'package:movie_app/Core/MVVM%20Base/base.dart';
 import 'package:provider/provider.dart';
 import '../../../HomeScreen/persentation/Screens/Home Screen/home_Screen.dart';
 import '../Forget Password Screen/forget_password_screen.dart';

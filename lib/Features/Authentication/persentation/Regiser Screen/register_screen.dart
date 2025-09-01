@@ -7,9 +7,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:movie_app/Core/assets/app_images.dart';
-import 'package:movie_app/Core/MVVM%20Base%20Class/base.dart';
+import 'package:movie_app/Core/MVVM%20Base/base.dart';
 import 'package:movie_app/Features/Authentication/persentation/Regiser%20Screen/register_connector.dart';
 import 'package:movie_app/Features/Authentication/persentation/Regiser%20Screen/register_viewModel.dart';
+import 'package:movie_app/Features/HomeScreen/data/local_data.dart';
 import 'package:provider/provider.dart';
 import '../../../../Core/Models/user_model.dart';
 import '../../../../Core/Theme/app_colors.dart';
@@ -34,11 +35,11 @@ class _RegisterScreenState extends BaseView<RegisterScreen,RegisterViewModel> im
   bool passwordVisible = false;
   bool rePasswordVisible = false;
 
-  final TextEditingController _nameController = TextEditingController();
-  final TextEditingController _emailController = TextEditingController();
-  final TextEditingController _passwordController = TextEditingController();
-  final TextEditingController _rePasswordController = TextEditingController();
-  final TextEditingController _phoneController = TextEditingController();
+  TextEditingController _nameController = TextEditingController();
+  TextEditingController _emailController = TextEditingController();
+  TextEditingController _passwordController = TextEditingController();
+  TextEditingController _rePasswordController = TextEditingController();
+  TextEditingController _phoneController = TextEditingController();
 
   @override
   void dispose() {
@@ -386,7 +387,7 @@ class _RegisterScreenState extends BaseView<RegisterScreen,RegisterViewModel> im
                             borderRadius: BorderRadius.circular(15.r),
                           ),
                           child: Text(
-                            "register_heading".tr(),
+                            "create_account_text".tr(),
                             style: GoogleFonts.roboto(
                               color: AppColors.getSecondaryTextColor(),
                               fontSize: 20.sp,

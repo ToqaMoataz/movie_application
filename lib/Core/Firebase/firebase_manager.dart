@@ -4,8 +4,8 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
-import '../Models/user_model.dart';
 
+import '../Models/user_model.dart';
 
 class FirebaseManager {
   //Users//

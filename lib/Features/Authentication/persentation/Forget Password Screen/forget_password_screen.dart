@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:movie_app/Core/MVVM%20Base%20Class/base.dart';
+import 'package:movie_app/Core/MVVM%20Base/base.dart';
 import 'package:provider/provider.dart';
-import '../../../../Core/App Components/widgets.dart';
+
 import '../../../../Core/Theme/app_colors.dart';
+import '../../../../Core/assets/App Components/widgets.dart';
 import '../Login Screen/login_screen.dart';
 import 'forget_password_connector.dart';
 import 'forget_password_viewModel.dart';

@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:movie_app/Features/onboarding/data/Onboarding_Data.dart';
 import '../../../Authentication/persentation/Login Screen/login_screen.dart';
-import '../../data/Onboarding_Data.dart';
 import '../../domain/helper/preferences_helper.dart';
 import 'Onboarding_Page.dart';
-
-
 
 class IntroductionScreen extends StatefulWidget {
   static const String routeName = "introductionscreen";
@@ -37,7 +35,7 @@ class _IntroductionScreenState extends State<IntroductionScreen> {
         context,
         rootNavigator: true,
       ).pushReplacementNamed(LoginScreen.routeName);
-
+      // TO Do آخر صفحة → Finish
       print("Finish pressed!");
     }
   }
