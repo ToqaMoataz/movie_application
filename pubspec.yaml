@@ -29,6 +29,8 @@ dependencies:
   #api packages
   dio: ^5.9.0
   talker_dio_logger: ^5.0.0
+  bloc: ^9.0.0
+  flutter_bloc: ^9.1.1
 
 dev_dependencies:
   flutter_test:
