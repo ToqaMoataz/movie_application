@@ -1,7 +1,7 @@
 import 'package:shared_preferences/shared_preferences.dart';
 
 class PreferencesHelper {
-  static const String onboardingSeenKey = 'onboarding_seen';
+  static const String onboardingSeenKey = 'onboarding_screen';
 
   static Future<void> setOnboardingSeen() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();

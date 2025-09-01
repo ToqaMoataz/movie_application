@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:movie_app/Screens/Introduction%20Screen/Onboarding_Data.dart';
+
+import '../../data/Onboarding_Data.dart';
 
 class Onboardingpage extends StatelessWidget {
   const Onboardingpage({

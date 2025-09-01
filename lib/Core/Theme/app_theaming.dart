@@ -22,14 +22,12 @@ class AppTheming{
     ),
     scaffoldBackgroundColor: AppColors.getBackgroundColor(),
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
+      showSelectedLabels: false,
+      showUnselectedLabels: false,
       backgroundColor: AppColors.getPrimaryColor(),
-      // selectedIconTheme: IconThemeData(
-      //   color: AppColors.getAccentColor(),
-      //   size: 24,
-      // ),
-      unselectedItemColor: AppColors.getIconColor(),
-      selectedItemColor: AppColors.getAccentColor(),
-      type: BottomNavigationBarType.fixed
+        selectedItemColor: Color(0XFFF6BD00),
+        unselectedItemColor:  Color(0XFFFFFFFF),
+        type: BottomNavigationBarType.fixed
     )
   );
 }
