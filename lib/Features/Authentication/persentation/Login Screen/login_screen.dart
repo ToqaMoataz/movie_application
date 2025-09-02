@@ -8,7 +8,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:movie_app/Core/Theme/app_colors.dart';
 import 'package:movie_app/Core/MVVM%20Base/base.dart';
 import 'package:provider/provider.dart';
-import '../../../HomeScreen/persentation/Screens/Home Screen/home_Screen.dart';
+import '../../../HomeScreen/persentation/Home Screen/home_Screen.dart';
 import '../Forget Password Screen/forget_password_screen.dart';
 import '../Regiser Screen/register_screen.dart';
 import 'login_connector.dart';

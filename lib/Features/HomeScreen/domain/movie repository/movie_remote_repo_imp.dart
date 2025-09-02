@@ -1,11 +1,10 @@
 
-import 'package:movie_app/Features/HomeScreen/domain/repository/repo.dart';
+import 'package:movie_app/Features/HomeScreen/domain/movie%20repository/repo.dart';
 
 import '../../../../Core/APIs/api_manager.dart';
 import '../../../../Core/APIs/endpoints.dart';
-import '../../../../Core/Models/MovieParentalGuidesResponse.dart';
 import '../../../../Core/Models/MoviesResponse.dart';
-import '../../../../Core/Models/movie_model.dart';
+import '../../../moviesDetails/data/models/movie_model.dart';
 
 
 
@@ -56,7 +55,7 @@ class MoviesRemoteRepository implements MoviesRepository{
 
 
   /////////// Movie_Details
-  //get_Movie_by_id✅
+  //get_Movie_by_id✅  to be removed
   Future<MovieResponse> getMovieByID(int id) async {
     try {
       var response = await api.getApi(Endpoints.movieDetailsEndpoint,
@@ -80,8 +79,8 @@ class MoviesRemoteRepository implements MoviesRepository{
         var response = await api.getApi(Endpoints.movieDetailsEndpoint,
             params: {
               "movie_id": ids[i],
-              "with_images": true,
-              "with_cast": true
+              // "with_images": true,
+              // "with_cast": true
             }
         );
         result.add(MovieResponse.fromJson(response.data));
@@ -92,7 +91,7 @@ class MoviesRemoteRepository implements MoviesRepository{
       rethrow;
     }
   }
-  /////////// Movie_Suggestions ✅
+  /////////// Movie_Suggestions ✅ to be removed
   Future<MoviesResponse> getMovieSuggestionsById(int id) async {
     try {
       var response = await api.getApi(Endpoints.movieSuggestionsEndpoint,
@@ -107,20 +106,6 @@ class MoviesRemoteRepository implements MoviesRepository{
     }
   }
 
-  /////////// Movie_Parental_Guides
-  Future<MovieParentalGuidesResponse> getMovieParentalGuidesById(int id) async {
-    try {
-      var response = await api.getApi(Endpoints.movieParentalGuidesEndpoint,
-          params: {
-            "movie_id": id
-          }
-      );
-      MovieParentalGuidesResponse result = MovieParentalGuidesResponse.fromJson(
-          response.data);
-      return result;
-    }catch(e){
-      rethrow;
-    }
-  }
+
 
 }

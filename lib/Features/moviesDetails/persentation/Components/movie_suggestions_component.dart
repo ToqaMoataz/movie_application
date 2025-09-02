@@ -11,7 +11,7 @@ class MovieSuggestionsComponent extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<MovieDetailsCubit, MovieDetailsStates>(
       builder: (context, state) {
-        var suggestion = MovieDetailsCubit.get(context).movieSuggestions?.data;
+        var suggestion = MovieDetailsCubit.get(context).state.movieSuggestions?.data;
 
         if (suggestion == null || suggestion.movies == null || suggestion.movies!.isEmpty) {
           return const SizedBox.shrink();

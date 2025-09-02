@@ -3,32 +3,33 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:movie_app/Core/Theme/app_colors.dart';
-import '../../../domain/repository/movie_remote_repo_imp.dart';
+import '../domain/movie_details_repo.dart';
 import 'Components/cast_component.dart';
 import 'Components/movie_suggestions_component.dart';
 import 'Components/small_info_card.dart';
 import 'MovieDetailsScreen cubit/cubit.dart';
 import 'MovieDetailsScreen cubit/states.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 
 class MovieDetailsScreen extends StatelessWidget {
   static const String routeName="movieDetailsScreen";
   const MovieDetailsScreen({super.key});
-  //MovieDetailsCubit.get(context).movieResponse?.data.movie
   @override
   Widget build(BuildContext context) {
     var movieId=ModalRoute.of(context)?.settings.arguments as int;
     return Scaffold(
       body: BlocProvider<MovieDetailsCubit>(
-        create: (context)=>MovieDetailsCubit(MoviesRemoteRepository())..getMovieById(movieId),
+        create: (context)=>MovieDetailsCubit(MovieDetailsRepoImp())..getMovieById(movieId),
         child: BlocConsumer<MovieDetailsCubit,MovieDetailsStates>(
             builder: (context,state){
+              MovieDetailsCubit.get(context).addToList( 'history',movieId.toString(),true);
               Color accentColor=AppColors.getAccentColor();
-              var movie=MovieDetailsCubit.get(context).movieResponse?.data.movie;
-              if (state is MovieDetailsLoadingState || state is LoadingSuggestionsState) {
+              var movie=MovieDetailsCubit.get(context).state.movieResponse?.data.movie;
+              if (state.movieRequestState == RequestState.loading || state.suggestionsRequestState == RequestState.loading){
                 return Center(child: CircularProgressIndicator(color: accentColor,));
               }
-              if (state is MovieDetailsSuccessState && MovieDetailsCubit.get(context).movieResponse != null){
+              if (state.movieRequestState == RequestState.success && state.movieResponse != null){
                 return ListView(
                   children: [
                     Padding(
@@ -83,15 +84,20 @@ class MovieDetailsScreen extends StatelessWidget {
                                               icon: Icon(Icons.arrow_back_ios,color: AppColors.getIconColor(),size: 30,)
                                           ),
                                           IconButton(
-                                            onPressed: (){},
-                                            icon: Icon(Icons.bookmark,color: AppColors.getIconColor(),size: 35,),//AppColors.getIconColor()
+                                            onPressed: (){
+                                              MovieDetailsCubit.get(context).toggleBookmark();
+                                              MovieDetailsCubit.get(context).addToList( 'toWatchList',movieId.toString(),MovieDetailsCubit.get(context).state.bookMarkTabbed);
+                                            },
+                                            icon: Icon(Icons.bookmark,color:(MovieDetailsCubit.get(context).state.bookMarkTabbed) ? AppColors.getAccentColor() : AppColors.getIconColor(),size: 35,),
                                           ),
                                         ],
                                       ),
                                     ),
                                     Center(
                                       child: IconButton(
-                                        onPressed: () {},
+                                        onPressed: () {
+
+                                        },
                                         icon: Image.asset(
                                           "assets/images/play button.png",
                                           width: 70,
@@ -144,8 +150,14 @@ class MovieDetailsScreen extends StatelessWidget {
                               children: [
                                 ////////// Watch Button
                                 ElevatedButton(
-                                  onPressed: () {
-                                    // your action
+                                  onPressed: () async {
+                                    try {
+                                      await MovieDetailsCubit.get(context).goToWatchMovie(movie!.url);
+                                    } catch (e) {
+                                      ScaffoldMessenger.of(context).showSnackBar(
+                                          SnackBar(content: Text("Could not open link"))
+                                      );
+                                    }
                                   },
                                   style: ElevatedButton.styleFrom(
                                     backgroundColor: AppColors.getActionColor(),
@@ -181,7 +193,6 @@ class MovieDetailsScreen extends StatelessWidget {
                                     child: Column(
                                       spacing: 12.h,
                                       crossAxisAlignment: CrossAxisAlignment.start,
-                                      // MovieDetailsCubit.get(context).movieResponse?.data.movie.
                                       children: [
                                         Text("Screenshots",style:GoogleFonts.roboto(
                                             fontSize: 24.sp,

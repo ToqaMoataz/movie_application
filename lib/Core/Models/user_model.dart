@@ -27,10 +27,10 @@ class UserModel {
       image: json['image'] ?? "",
       historyList: json['history'] != null
           ? List<String>.from(json['history'])
-          : null,
+          : <String>[],
       toWatchList: json['toWatchList'] != null
           ? List<String>.from(json['toWatchList'])
-          : null,
+          : <String>[],
     );
   }
 
@@ -41,8 +41,8 @@ class UserModel {
       'email': email,
       'phoneNumber': phoneNumber,
       'image': image,
-      'history': historyList,
-      'toWatchList': toWatchList,
+      'history': historyList ?? <String>[],  
+      'toWatchList': toWatchList ?? <String>[],
     };
   }
 }

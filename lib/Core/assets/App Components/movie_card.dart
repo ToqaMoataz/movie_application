@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:movie_app/Core/Theme/app_colors.dart';
+import 'package:movie_app/Features/moviesDetails/persentation/movie_details_screen.dart';
 
 class MovieCard extends StatelessWidget {
   String imgURL;
@@ -27,7 +28,7 @@ class MovieCard extends StatelessWidget {
             },
           ),
         ),
-
+    
         Positioned(
             top: 12,
             left: 12,

@@ -4,10 +4,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movie_app/Core/Theme/app_theaming.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'package:movie_app/Features/moviesDetails/persentation/movie_details_screen.dart';
 import 'Features/Authentication/persentation/Login Screen/login_screen.dart';
 import 'Features/Authentication/persentation/Regiser Screen/register_screen.dart';
+import 'Features/HomeScreen/persentation/Home Screen/home_Screen.dart';
 import 'Features/onboarding/persentation/Introduction Screen/introduction_screen.dart';
 import 'firebase_options.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
@@ -47,9 +50,11 @@ class MyApp extends StatelessWidget {
           routes: {
             IntroductionScreen.routeName: (context) => IntroductionScreen(),
             RegisterScreen.routeName: (context) => RegisterScreen(),
-            LoginScreen.routeName: (context) => LoginScreen()
+            LoginScreen.routeName: (context) => LoginScreen(),
+            HomeScreen.routeName : (context) => HomeScreen(),
+            MovieDetailsScreen.routeName : (context) => MovieDetailsScreen()
           },
-          initialRoute: LoginScreen.routeName,
+          initialRoute: RegisterScreen.routeName,
         );
       },
     );
