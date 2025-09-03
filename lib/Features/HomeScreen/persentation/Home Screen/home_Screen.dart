@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:movie_app/Features/HomeScreen/domain/user%20repository/user_repo.dart';
+
 import '../../domain/movie repository/movie_remote_repo_imp.dart';
 import '../HomeScreen cubit/cubit.dart';
 import '../HomeScreen cubit/state.dart';
@@ -16,7 +16,11 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider<HomeCubit>(
-      create: (context)=>HomeCubit(MoviesRemoteRepository(),UserRepoImp()),
+      //create: (context)=>HomeCubit(MoviesRemoteRepository(),UserRepoImp()),
+      create: (context) =>
+      HomeCubit(MoviesRemoteRepository())
+        ..loadHome(),
+
       child:BlocConsumer<HomeCubit,HomeStates>(
           builder: (context,state){
             return  Scaffold(

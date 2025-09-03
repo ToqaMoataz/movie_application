@@ -1,18 +1,34 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:movie_app/Core/Models/user_model.dart';
-import 'package:movie_app/Features/HomeScreen/domain/user%20repository/user_repo.dart';
 import 'package:movie_app/Features/HomeScreen/persentation/HomeScreen cubit/state.dart';
 
-import '../../../../../../Core/Models/MoviesResponse.dart';
 import '../../data/local_data.dart';
 import '../../domain/movie repository/repo.dart';
+//import '../../domain/repository/repo.dart';
 
 class HomeCubit extends Cubit<HomeState> {
-  HomeCubit(this.repo,this.userRepo) : super(HomeInitState());
+  HomeCubit(this.repo) : super(HomeInitState());
+
+// داخل HomeCubit class
+
+  Future<void> loadHome() async {
+    try {
+      // notify loading if حابة تضيفي حالة خاصة هنا
+      emit(state.copyWith(browseMoviesRequestState: RequestState.loading));
+      final recent = await repo.getRecentMovies();
+      // بعد ما نجيب recent نعرضه في browseMoviesResponse مؤقتًا
+      emit(state.copyWith(
+        browseMoviesRequestState: RequestState.success,
+        moviesBrowseResponse: recent,
+      ));
+    } catch (e) {
+      emit(state.copyWith(
+        browseMoviesRequestState: RequestState.error,
+        errorMessage: e.toString(),
+      ));
+    }
+  }
 
   final MoviesRepository repo;
-  final UserRepo userRepo;
 
   static HomeCubit get(context) => BlocProvider.of<HomeCubit>(context);
 
@@ -22,9 +38,6 @@ class HomeCubit extends Cubit<HomeState> {
     if (index == 2) {
       browseByGenre();
     }
-    else if (index == 3) {
-      getCurrentUser();
-    }
   }
 
   // Set genre tab index
@@ -32,7 +45,7 @@ class HomeCubit extends Cubit<HomeState> {
     emit(state.copyWith(genreIndex: index));
     browseByGenre();
   }
-  //HomeTab
+
   // Search Tab
   Future<void> searchMoviesByName(String search) async {
     try {
@@ -71,25 +84,4 @@ class HomeCubit extends Cubit<HomeState> {
       ));
     }
   }
-  //Profile Tab
-  Future<void> getCurrentUser() async {
-    try {
-      emit(state.copyWith(profileMoviesRequestState: RequestState.loading));
-      if (FirebaseAuth.instance.currentUser != null) {
-        UserModel? response = await userRepo.readCurrUser();
-        print("user in response ${response?.name}");
-
-        emit(state.copyWith(
-          profileMoviesRequestState: RequestState.success,
-          user: response,
-        ));
-      }
-    } catch (e) {
-      emit(state.copyWith(
-        profileMoviesRequestState: RequestState.error,
-        errorMessage: e.toString(),
-      ));
-    }
-  }
-
 }
