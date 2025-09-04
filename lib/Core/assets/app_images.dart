@@ -5,6 +5,9 @@ abstract class AppImages {
   static const String onboarding_image4 = 'assets/images/onboarding_image4.png';
   static const String onboarding_image5 = 'assets/images/onboarding_image5.png';
   static const String onboarding_image6 = 'assets/images/onboarding_image6.png';
+  static const String AvailableNow = 'assets/images/Available Now.png';
+  static const String WatchNow = 'assets/images/Watch Now.png';
+  static const String background_hometab = 'assets/images/background_hometab.png';
 
   static List<String> getUserImages(){
     return [

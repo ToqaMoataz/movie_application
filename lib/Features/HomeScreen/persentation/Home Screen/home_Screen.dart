@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:movie_app/Features/HomeScreen/domain/user%20repository/user_repo.dart';
-import '../../../../Core/Theme/app_colors.dart';
+
 import '../../domain/movie repository/movie_remote_repo_imp.dart';
 import '../HomeScreen cubit/cubit.dart';
 import '../HomeScreen cubit/state.dart';
@@ -17,49 +16,45 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider<HomeCubit>(
-      create: (context)=>HomeCubit(MoviesRemoteRepository(),UserRepoImp()),
+      //create: (context)=>HomeCubit(MoviesRemoteRepository(),UserRepoImp()),
+      create: (context) =>
+      HomeCubit(MoviesRemoteRepository())..loadHomeTab(),
+
       child:BlocConsumer<HomeCubit,HomeStates>(
           builder: (context,state){
             return  Scaffold(
-              extendBody: true,
               body: returnTab(HomeCubit.get(context).state.currTabIndex),
               bottomNavigationBar: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 16),
-                child: Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(16),
-                  ),
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(16),
-                    child: BottomNavigationBar(
-                      currentIndex: HomeCubit.get(context).state.currTabIndex,
-                      elevation: 0,
-                      onTap: (value) {
-                        HomeCubit.get(context).setTabIndex(value);
-                      },
-                      items: const [
-                        BottomNavigationBarItem(
-                          icon: Icon(Icons.home_filled),
-                          label: 'Home',
-                        ),
-                        BottomNavigationBarItem(
-                          icon: Icon(Icons.search_rounded),
-                          label: 'Search',
-                        ),
-                        BottomNavigationBarItem(
-                          icon: Icon(Icons.explore),
-                          label: 'Explore',
-                        ),
-                        BottomNavigationBarItem(
-                          icon: Icon(Icons.person),
-                          label: 'Profile',
-                        ),
-                      ],
-                    ),
+                padding: const EdgeInsets.symmetric(horizontal: 12,vertical: 16),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(16.r),
+                  child: BottomNavigationBar(
+                    currentIndex: HomeCubit.get(context).state.currTabIndex,
+                    onTap: (value){
+                      HomeCubit.get(context).setTabIndex(value);
+                      print("Current Tab Index:${HomeCubit.get(context).state.currTabIndex}");
+                    },
+                    items: const [
+                      BottomNavigationBarItem(
+                        icon: Icon(Icons.home_filled),
+                        label: 'Home',
+                      ),
+                      BottomNavigationBarItem(
+                        icon: Icon(Icons.search_rounded),
+                        label: 'Search',
+                      ),
+                      BottomNavigationBarItem(
+                        icon: Icon(Icons.explore),
+                        label: 'Explore',
+                      ),
+                      BottomNavigationBarItem(
+                        icon: Icon(Icons.person),
+                        label: 'Profile',
+                      ),
+                    ],
                   ),
                 ),
               ),
-
 
             );
           },
