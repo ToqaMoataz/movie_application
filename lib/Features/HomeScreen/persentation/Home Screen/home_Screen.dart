@@ -18,8 +18,7 @@ class HomeScreen extends StatelessWidget {
     return BlocProvider<HomeCubit>(
       //create: (context)=>HomeCubit(MoviesRemoteRepository(),UserRepoImp()),
       create: (context) =>
-      HomeCubit(MoviesRemoteRepository())
-        ..loadHomeTab(),
+      HomeCubit(MoviesRemoteRepository())..loadHomeTab(),
 
       child:BlocConsumer<HomeCubit,HomeStates>(
           builder: (context,state){

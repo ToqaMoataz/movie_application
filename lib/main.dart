@@ -7,6 +7,7 @@ import 'package:movie_app/Features/moviesDetails/persentation/movie_details_scre
 
 import 'Features/Authentication/persentation/Login Screen/login_screen.dart';
 import 'Features/Authentication/persentation/Regiser Screen/register_screen.dart';
+import 'Features/HomeScreen/persentation/Home Screen/Tabs/Home Tab/GenreMoviesScreen.dart';
 import 'Features/HomeScreen/persentation/Home Screen/home_Screen.dart';
 import 'Features/onboarding/persentation/Introduction Screen/introduction_screen.dart';
 import 'firebase_options.dart';
@@ -51,7 +52,8 @@ class MyApp extends StatelessWidget {
             RegisterScreen.routeName: (context) => RegisterScreen(),
             LoginScreen.routeName: (context) => LoginScreen(),
             HomeScreen.routeName : (context) => HomeScreen(),
-            MovieDetailsScreen.routeName : (context) => MovieDetailsScreen()
+            MovieDetailsScreen.routeName : (context) => MovieDetailsScreen(),
+            GenreMoviesScreen.routeName : (context) => GenreMoviesScreen()
           },
           initialRoute: HomeScreen.routeName,
         );

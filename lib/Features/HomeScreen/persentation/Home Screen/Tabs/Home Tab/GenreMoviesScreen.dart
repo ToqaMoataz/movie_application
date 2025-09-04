@@ -5,23 +5,21 @@ import '../../../../../../Core/Models/MoviesResponse.dart';
 import '../../../../../moviesDetails/persentation/movie_details_screen.dart';
 
 class GenreMoviesScreen extends StatelessWidget {
-  final List<Movies> movies;
-  final String title;
+  static const String routeName="seeMoreGenre";
 
-  const GenreMoviesScreen({
-    super.key,
-    required this.movies,
-    required this.title,
-  });
+  const GenreMoviesScreen({super.key,});
 
   @override
   Widget build(BuildContext context) {
+    final args = ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
+
+    final String title = args["genre"] as String;
+    final List<Movies> movies = args["movies"] as List<Movies>;
     return ScreenUtilInit(
       designSize: const Size(360, 690),
       builder: (context, child) =>
           Scaffold(
-            appBar: AppBar(
-                title: Text(title, style: TextStyle(fontSize: 18.sp))),
+            appBar: AppBar(title: Text(title,)),
             body: GridView.builder(
               padding: EdgeInsets.all(8.w),
               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
