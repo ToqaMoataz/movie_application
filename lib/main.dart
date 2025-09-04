@@ -2,9 +2,12 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:hive/hive.dart';
+import 'package:hive_flutter/adapters.dart';
 import 'package:movie_app/Core/Theme/app_theaming.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:movie_app/Features/moviesDetails/persentation/movie_details_screen.dart';
+import 'Core/Hive/hive_manager.dart';
 import 'Features/Authentication/persentation/Forget Password Screen/forget_password_screen.dart';
 import 'Features/Authentication/persentation/Login Screen/login_screen.dart';
 import 'Features/Authentication/persentation/Regiser Screen/register_screen.dart';
@@ -17,7 +20,9 @@ import 'package:url_launcher/url_launcher.dart';
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
-  //await FirebaseFirestore.instance.disableNetwork();
+
+  await Hive.initFlutter();
+  await HiveManager.init();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );

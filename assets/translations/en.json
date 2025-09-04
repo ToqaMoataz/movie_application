@@ -23,6 +23,13 @@
   "history_text" : "History",
   "pick_avatar_heading" : "Pick Avatar",
   "new_avatar" : "Avatar",
-  "see_more_text" : "See More"
+  "see_more_text" : "See More",
+  "watch_text": "Watch",
+  "summary_text": "Summary",
+  "screenshots_text": "ScreenShots",
+  "cast_text": "Cast",
+  "genres_text": "Geners",
+  "discription_text": "Description",
+  "similar_text" : "Similar"
 
 }

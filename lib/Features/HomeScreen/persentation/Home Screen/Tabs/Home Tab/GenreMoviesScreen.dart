@@ -15,10 +15,7 @@ class GenreMoviesScreen extends StatelessWidget {
 
     final String title = args["genre"] as String;
     final List<Movies> movies = args["movies"] as List<Movies>;
-    return ScreenUtilInit(
-      designSize: const Size(360, 690),
-      builder: (context, child) =>
-          Scaffold(
+    return Scaffold(
             appBar: AppBar(title: Text(title,)),
             body: GridView.builder(
               padding: EdgeInsets.all(8.w),
@@ -76,7 +73,6 @@ class GenreMoviesScreen extends StatelessWidget {
                 );
               },
             ),
-      ),
     );
   }
 }

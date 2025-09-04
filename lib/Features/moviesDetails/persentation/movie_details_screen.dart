@@ -1,7 +1,9 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:movie_app/Core/Hive/hive_manager.dart';
 import 'package:movie_app/Core/Theme/app_colors.dart';
 import '../domain/movie_details_repo.dart';
 import 'Components/cast_component.dart';
@@ -84,6 +86,7 @@ class MovieDetailsScreen extends StatelessWidget {
                                           ),
                                           IconButton(
                                             onPressed: (){
+                                              HiveManager.printToWatchList();
                                               MovieDetailsCubit.get(context).toggleBookmark();
                                               MovieDetailsCubit.get(context).addToList( 'toWatchList',movieId,MovieDetailsCubit.get(context).state.bookMarkTabbed);
                                             },
@@ -166,7 +169,7 @@ class MovieDetailsScreen extends StatelessWidget {
                                     padding: EdgeInsets.symmetric(vertical: 16.h),
                                   ),
                                   child: Text(
-                                    "Watch",
+                                    "watch_text".tr(),
                                     textAlign: TextAlign.center,
                                     style: GoogleFonts.roboto(
                                       color: AppColors.getPrimaryTextColor(),
@@ -193,7 +196,7 @@ class MovieDetailsScreen extends StatelessWidget {
                                       spacing: 12.h,
                                       crossAxisAlignment: CrossAxisAlignment.start,
                                       children: [
-                                        Text("Screenshots",style:GoogleFonts.roboto(
+                                        Text("screenshots_text".tr(),style:GoogleFonts.roboto(
                                             fontSize: 24.sp,
                                             fontWeight: FontWeight.w700,
                                             color: AppColors.getPrimaryTextColor()
@@ -238,14 +241,14 @@ class MovieDetailsScreen extends StatelessWidget {
                                     )
                                 ),
                                 ////////// Similar
-                                Text("Similar",style:GoogleFonts.roboto(
+                                Text("similar_text".tr(),style:GoogleFonts.roboto(
                                     fontSize: 24.sp,
                                     fontWeight: FontWeight.w700,
                                     color: AppColors.getPrimaryTextColor()
                                 ),),
                                 MovieSuggestionsComponent(),
                                 ////////// Summary
-                                Text("Summary",style:GoogleFonts.roboto(
+                                Text("summary_text".tr(),style:GoogleFonts.roboto(
                                     fontSize: 24.sp,
                                     fontWeight: FontWeight.w700,
                                     color: AppColors.getPrimaryTextColor()
@@ -258,7 +261,7 @@ class MovieDetailsScreen extends StatelessWidget {
                                   ),
                                 ),
                                 ////////// Cast
-                                Text("Cast",style:GoogleFonts.roboto(
+                                Text("cast_text".tr(),style:GoogleFonts.roboto(
                                     fontSize: 24.sp,
                                     fontWeight: FontWeight.w700,
                                     color: AppColors.getPrimaryTextColor()
@@ -282,7 +285,7 @@ class MovieDetailsScreen extends StatelessWidget {
                                 ////////// Genres
                                 // Genres
                                 Text(
-                                  "Genres",
+                                  "genres_text".tr(),
                                   style: GoogleFonts.roboto(
                                     fontSize: 24.sp,
                                     fontWeight: FontWeight.w700,
