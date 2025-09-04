@@ -4,6 +4,7 @@ class AppColors{
 
   static Color getBackgroundColor() => Color(0XFF121312);
   static Color getPrimaryColor() => Color(0XFF282A28);
+  static Color getDarkerPrimaryColor() => Color(0XFF212121);
   static Color getAccentColor() => Color(0XFFF6BD00);
   static Color getActionColor() => Color(0XFFE82626);    //Exit, Delete Account and Watch buttons
 

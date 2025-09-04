@@ -1,4 +1,4 @@
-import '../../data/models/movie_model.dart';
+import '../../../../Core/Models/movie_model.dart';
 import '../../../../../../Core/Models/MoviesResponse.dart';
 
 enum RequestState { init, loading, success, error }

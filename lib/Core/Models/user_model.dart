@@ -4,8 +4,8 @@ class UserModel {
   final String email;
   final String phoneNumber;
   final String image;
-  List<String>? historyList;
-  List<String>? toWatchList;
+  List<int>? historyList;
+  List<int>? toWatchList;
 
   UserModel({
     this.id = "",
@@ -26,11 +26,11 @@ class UserModel {
       phoneNumber: json['phoneNumber'] ?? "",
       image: json['image'] ?? "",
       historyList: json['history'] != null
-          ? List<String>.from(json['history'])
-          : <String>[],
+          ? List<int>.from(json['history'])
+          : <int>[],
       toWatchList: json['toWatchList'] != null
-          ? List<String>.from(json['toWatchList'])
-          : <String>[],
+          ? List<int>.from(json['toWatchList'])
+          : <int>[],
     );
   }
 

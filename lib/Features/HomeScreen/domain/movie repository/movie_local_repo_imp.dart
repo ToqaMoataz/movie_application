@@ -1,25 +1,13 @@
 import 'package:movie_app/Features/HomeScreen/domain/movie%20repository/repo.dart';
 import '../../../../Core/Models/MoviesResponse.dart';
-import '../../../moviesDetails/data/models/movie_model.dart';
+import '../../../../Core/Models/movie_model.dart';
 
 
 class MoviesLocalRepository implements MoviesRepository{
-  @override
-  Future<MovieResponse> getMovieByID(int id) {
-    // TODO: implement getMovieByID
-    throw UnimplementedError();
-  }
-
 
   @override
   Future<MoviesResponse> getMovieSuggestionsById(int id) {
     // TODO: implement getMovieSuggestionsById
-    throw UnimplementedError();
-  }
-
-  @override
-  Future<List<MovieResponse>> getMoviesById(List<int> ids) {
-    // TODO: implement getMoviesById
     throw UnimplementedError();
   }
 
@@ -38,6 +26,12 @@ class MoviesLocalRepository implements MoviesRepository{
   @override
   Future<MoviesResponse> searchMovies(String movieName) {
     // TODO: implement searchMovies
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<List<MovieResponse>> getMoviesByIDs(List<int> ids) {
+    // TODO: implement getMoviesByIDs
     throw UnimplementedError();
   }
 

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../../../Core/assets/App Components/movie_card.dart';
+import '../../../../Core/Theme/app_colors.dart';
 import '../MovieDetailsScreen cubit/cubit.dart';
 import '../MovieDetailsScreen cubit/states.dart';
 import '../movie_details_screen.dart';
@@ -15,6 +16,9 @@ class MovieSuggestionsComponent extends StatelessWidget {
 
         if (suggestion == null || suggestion.movies == null || suggestion.movies!.isEmpty) {
           return const SizedBox.shrink();
+        }
+        else if(MovieDetailsCubit.get(context).state.movieRequestState==RequestState.loading){
+          return Center(child: CircularProgressIndicator(color: AppColors.getAccentColor(),));
         }
 
         return GridView.builder(

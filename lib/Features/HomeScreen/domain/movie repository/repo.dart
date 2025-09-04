@@ -1,6 +1,6 @@
 
 import '../../../../Core/Models/MoviesResponse.dart';
-import '../../../moviesDetails/data/models/movie_model.dart';
+import '../../../../Core/Models/movie_model.dart';
 
 abstract class MoviesRepository{
 
@@ -12,5 +12,5 @@ abstract class MoviesRepository{
   Future<MoviesResponse> getRecentMovies();
 
   //list_of_movies
-  Future<List<MovieResponse>> getMoviesById(List<int> ids);
+  Future<List<MovieResponse>> getMoviesByIDs(List<int> ids);
 }

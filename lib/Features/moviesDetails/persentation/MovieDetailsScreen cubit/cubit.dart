@@ -1,6 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'states.dart';
-import '../../data/models/movie_model.dart';
+import '../../../../Core/Models/movie_model.dart';
 import '../../domain/movie_details_repo.dart';
 import '../../../../../../Core/Models/MoviesResponse.dart';
 
@@ -52,11 +52,12 @@ class MovieDetailsCubit extends Cubit<MovieDetailsStates> {
     }
   }
 
-  Future<void> addToList(String movieId,String listName,bool isAdd) async {
+  Future<void> addToList(String listName,int movieId,bool isAdd) async {
     try{
-     await repo.updateUserList(movieId,listName,isAdd);
+     await repo.updateUserList(listName,movieId,isAdd);
     }catch(e){
       print(e.toString());
     }
   }
+
 }

@@ -7,7 +7,7 @@ import '../../../Core/APIs/api_manager.dart';
 import '../../../Core/APIs/endpoints.dart';
 import '../../../Core/Models/MoviesResponse.dart';
 import '../data/models/MovieParentalGuidesResponse.dart';
-import '../data/models/movie_model.dart';
+import '../../../Core/Models/movie_model.dart';
 
 abstract class MovieDetailsRepo {
   //get_Movie_by_id✅
@@ -19,7 +19,7 @@ abstract class MovieDetailsRepo {
   /////////// Movie_Parental_Guides
   Future<MovieParentalGuidesResponse> getMovieParentalGuidesById(int id);
 
-  Future<void> updateUserList(String listName,String id,bool isAdd);
+  Future<void> updateUserList(String listName,int id,bool isAdd);
 
   Future<void> watchMovieFromUrl(String url);
 }
@@ -68,7 +68,7 @@ class MovieDetailsRepoImp extends MovieDetailsRepo {
     }
   }
   //update watch List and history
-  Future<void> updateUserList(String listName, String id,bool isAdd) async {
+  Future<void> updateUserList(String listName, int id,bool isAdd) async {
   try {
     final userId = FirebaseAuth.instance.currentUser?.uid;
     if (userId == null) return;
@@ -84,7 +84,7 @@ class MovieDetailsRepoImp extends MovieDetailsRepo {
     UserModel? user = snapshot.data();
     if (user == null) return;
 
-    List<String> currentList;
+    List<int> currentList;
     if (listName == "history") {
       currentList = List.from(user.historyList ?? []);
     } else if (listName == "toWatchList") {

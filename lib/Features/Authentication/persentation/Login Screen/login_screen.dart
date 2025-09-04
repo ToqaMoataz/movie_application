@@ -236,7 +236,7 @@ class _LoginScreenState extends BaseView<LoginScreen,LoginViewModel> implements 
                           ),
                           recognizer: TapGestureRecognizer()
                             ..onTap = () {
-                              Navigator.pushReplacementNamed(context, RegisterScreen.routeName);
+                              Navigator.pushNamed(context, RegisterScreen.routeName);
                             },
                         ),
 
@@ -395,7 +395,11 @@ class _LoginScreenState extends BaseView<LoginScreen,LoginViewModel> implements 
 
   @override
   goToHome() {
-    Navigator.pushReplacementNamed(context, HomeScreen.routeName);
+    Navigator.of(context).pushNamedAndRemoveUntil(
+      HomeScreen.routeName,
+          (route) => false,
+    );
+
   }
 
 

@@ -23,11 +23,10 @@ class MovieDetailsScreen extends StatelessWidget {
         create: (context)=>MovieDetailsCubit(MovieDetailsRepoImp())..getMovieById(movieId),
         child: BlocConsumer<MovieDetailsCubit,MovieDetailsStates>(
             builder: (context,state){
-              MovieDetailsCubit.get(context).addToList( 'history',movieId.toString(),true);
-              Color accentColor=AppColors.getAccentColor();
+              MovieDetailsCubit.get(context).addToList('history',movieId,true);
               var movie=MovieDetailsCubit.get(context).state.movieResponse?.data.movie;
               if (state.movieRequestState == RequestState.loading || state.suggestionsRequestState == RequestState.loading){
-                return Center(child: CircularProgressIndicator(color: accentColor,));
+                return Center(child: CircularProgressIndicator(color: AppColors.getAccentColor(),));
               }
               if (state.movieRequestState == RequestState.success && state.movieResponse != null){
                 return ListView(
@@ -86,7 +85,7 @@ class MovieDetailsScreen extends StatelessWidget {
                                           IconButton(
                                             onPressed: (){
                                               MovieDetailsCubit.get(context).toggleBookmark();
-                                              MovieDetailsCubit.get(context).addToList( 'toWatchList',movieId.toString(),MovieDetailsCubit.get(context).state.bookMarkTabbed);
+                                              MovieDetailsCubit.get(context).addToList( 'toWatchList',movieId,MovieDetailsCubit.get(context).state.bookMarkTabbed);
                                             },
                                             icon: Icon(Icons.bookmark,color:(MovieDetailsCubit.get(context).state.bookMarkTabbed) ? AppColors.getAccentColor() : AppColors.getIconColor(),size: 35,),
                                           ),

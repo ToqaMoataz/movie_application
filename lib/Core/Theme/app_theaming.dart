@@ -5,6 +5,7 @@ import 'package:movie_app/Core/Theme/app_colors.dart';
 
 class AppTheming{
   static ThemeData theme=ThemeData(
+
     appBarTheme: AppBarTheme(
       backgroundColor: AppColors.getBackgroundColor(),
       iconTheme: IconThemeData(
@@ -20,15 +21,14 @@ class AppTheming{
       ),
        centerTitle: true
     ),
+
     scaffoldBackgroundColor: AppColors.getBackgroundColor(),
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
-      backgroundColor: AppColors.getPrimaryColor(),
-      // selectedIconTheme: IconThemeData(
-      //   color: AppColors.getAccentColor(),
-      //   size: 24,
-      // ),
+      backgroundColor: AppColors.getDarkerPrimaryColor(),
       unselectedItemColor: AppColors.getIconColor(),
       selectedItemColor: AppColors.getAccentColor(),
+        showSelectedLabels: false,
+        showUnselectedLabels: false,
       type: BottomNavigationBarType.fixed
     )
   );
