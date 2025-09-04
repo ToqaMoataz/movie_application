@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../domain/movie repository/movie_remote_repo_imp.dart';
+import '../../domain/user repository/user_repo.dart';
 import '../HomeScreen cubit/cubit.dart';
 import '../HomeScreen cubit/state.dart';
 import 'Tabs/Browse Tab/browse_tab.dart';
@@ -18,11 +19,12 @@ class HomeScreen extends StatelessWidget {
     return BlocProvider<HomeCubit>(
       //create: (context)=>HomeCubit(MoviesRemoteRepository(),UserRepoImp()),
       create: (context) =>
-      HomeCubit(MoviesRemoteRepository())..loadHomeTab(),
+      HomeCubit(MoviesRemoteRepository(),UserRepoImp())..loadHomeTab(),
 
       child:BlocConsumer<HomeCubit,HomeStates>(
           builder: (context,state){
             return  Scaffold(
+              extendBody: true,
               body: returnTab(HomeCubit.get(context).state.currTabIndex),
               bottomNavigationBar: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 12,vertical: 16),
