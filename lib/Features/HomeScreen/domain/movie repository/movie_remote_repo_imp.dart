@@ -38,14 +38,17 @@ class MoviesRemoteRepository implements MoviesRepository{
     }
   }
   //recent_movies
+  //recent_movies
   Future<MoviesResponse> getRecentMovies() async {
     try {
       var response = await api.getApi(Endpoints.listMoviesEndpoint, params: {
         "sort_by": "year",
         "order_by": "desc",
-        "limit": 10
+        "movie_count": 10
       });
       MoviesResponse result = MoviesResponse.fromJson(response.data);
+      print("Movieeeee lengthhhhh:${result.data?.movies?.length}");
+      print("Movieeeee countttttt:${result.data?.movieCount}");
       return result;
     }catch(e){
       rethrow;

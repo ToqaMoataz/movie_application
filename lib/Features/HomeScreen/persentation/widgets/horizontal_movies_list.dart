@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:movie_app/Core/Theme/app_colors.dart';
 
 import '../../../../Core/Models/MoviesResponse.dart';
@@ -29,9 +30,9 @@ class HorizontalMoviesList extends StatelessWidget {
             children: [
               Text(
                 title,
-                style: const TextStyle(
+                style: TextStyle(
                   color: Colors.white,
-                  fontSize: 18,
+                  fontSize: 18.sp,
                   // fontWeight: FontWeight.w500,
                 ),
               ),
@@ -44,7 +45,7 @@ class HorizontalMoviesList extends StatelessWidget {
                         "See More",
                         style: TextStyle(
                           color: AppColors.getAccentColor(),
-                          fontSize: 16,
+                          fontSize: 16.sp,
                         ),
                       ),
                       Icon(
@@ -57,10 +58,10 @@ class HorizontalMoviesList extends StatelessWidget {
             ],
           ),
         ),
-        const SizedBox(height: 8),
+        SizedBox(height: 8.h),
 
         SizedBox(
-          height: 220,
+          height: 220.h,
           child: ListView.builder(
             scrollDirection: Axis.horizontal,
             itemCount: movies.length,
@@ -69,7 +70,7 @@ class HorizontalMoviesList extends StatelessWidget {
               return GestureDetector(
                 onTap: () => onTapMovie(movie),
                 child: Container(
-                  width: 120,
+                  width: 120.w,
                   margin: const EdgeInsets.symmetric(horizontal: 8),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -88,12 +89,12 @@ class HorizontalMoviesList extends StatelessWidget {
                             ),
                             // Rating overlay
                             Positioned(
-                              top: 8,
-                              left: 8,
+                              top: 8.h,
+                              left: 8.w,
                               child: Container(
-                                padding: const EdgeInsets.symmetric(
-                                  horizontal: 6,
-                                  vertical: 2,
+                                padding: EdgeInsets.symmetric(
+                                  horizontal: 6.w,
+                                  vertical: 2.h,
                                 ),
                                 decoration: BoxDecoration(
                                   color: Colors.black.withOpacity(0.7),
@@ -104,14 +105,14 @@ class HorizontalMoviesList extends StatelessWidget {
                                     Icon(
                                       Icons.star,
                                       color: AppColors.getAccentColor(),
-                                      size: 14,
+                                      size: 14.sp,
                                     ),
                                     const SizedBox(width: 4),
                                     Text(
                                       movie.rating?.toStringAsFixed(1) ?? '0',
-                                      style: const TextStyle(
+                                      style: TextStyle(
                                         color: Colors.white,
-                                        fontSize: 12,
+                                        fontSize: 12.sp,
                                       ),
                                     ),
                                   ],
