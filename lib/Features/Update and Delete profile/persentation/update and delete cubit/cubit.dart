@@ -7,6 +7,7 @@ import 'package:movie_app/Features/Update%20and%20Delete%20profile/persentation/
 
 import '../../../../Core/Models/user_model.dart';
 import '../../../Authentication/persentation/Login Screen/login_screen.dart';
+import '../../../HomeScreen/persentation/HomeScreen cubit/cubit.dart';
 
 class UpdateProfileCubit extends Cubit<UpdateProfileState> {
   UserRepo userRepo;
@@ -23,6 +24,7 @@ class UpdateProfileCubit extends Cubit<UpdateProfileState> {
   }
   void getUserImage(UserModel user){
     emit(state.copyWith(selectedImage: user.image));
+    print(state.selectedImage);
   }
 
   Future<void> updateUser(String name,String phoneNumber,String imageName)async{
@@ -30,7 +32,6 @@ class UpdateProfileCubit extends Cubit<UpdateProfileState> {
       emit(state.copyWith(updateProfileRequestState: RequestState.loading));
       await repo.updateUserData(name: name, phoneNumber: phoneNumber,image: imageName);
       emit(state.copyWith(updateProfileRequestState: RequestState.success));
-
     } catch (e) {
       emit(state.copyWith(
         updateProfileRequestState: RequestState.error,

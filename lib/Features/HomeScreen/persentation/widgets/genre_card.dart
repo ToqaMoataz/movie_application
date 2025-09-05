@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:movie_app/Features/HomeScreen/persentation/Home%20Screen/Tabs/Home%20Tab/GenreMoviesScreen.dart';
-
 import '../../../../Core/Models/MoviesResponse.dart';
 import '../../../../Core/Theme/app_colors.dart';
 import '../../../../Core/assets/App Components/movie_card.dart';
@@ -11,11 +9,13 @@ import '../../../moviesDetails/persentation/movie_details_screen.dart';
 class GenreCard extends StatelessWidget {
   final String genre;
   final List<Movies> movies;
+  Function onTap;
 
-  const GenreCard({
+  GenreCard({
     Key? key,
     required this.genre,
     required this.movies,
+    required this.onTap,
   }) : super(key: key);
 
   @override
@@ -44,14 +44,8 @@ class GenreCard extends StatelessWidget {
               )),
               InkWell(
                 onTap: (){
-                  Navigator.pushNamed(
-                    context,
-                    GenreMoviesScreen.routeName,
-                    arguments: {
-                      "genre": genre,
-                      "movies": movies,
-                    },
-                  );},
+                 onTap();
+                  },
                 child: Text("See More", style: GoogleFonts.roboto(
                   color: AppColors.getAccentColor(),
                   fontSize: 16.sp,

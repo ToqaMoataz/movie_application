@@ -59,18 +59,20 @@ class HomeCubit extends Cubit<HomeState> {
     }
   }
 
-  Future<void> getByGenre() async {
+  Future<void> getLimitedMoviesByGenre() async {
     try {
       emit(state.copyWith(moviesByGenreRequestState: RequestState.loading));
 
       final updatedList = <Map<String, MoviesResponse>>[];
 
       for (final genre in genres) {
-        final response = await repo.listMoviesByGenre(genre);
-        final limitedMovies = response.data?.movies;
+        final response = await repo.listLimitMoviesByGenre(genre,5);
+        final movies = response.data?.movies;
+        final limitedMovies = movies ?? <Movies>[];
+
         final limitedResponse = MoviesResponse(
           data: Data(
-            movieCount: limitedMovies?.length,
+            movieCount: limitedMovies.length,
             movies: limitedMovies,
           ),
           meta: response.meta,
@@ -90,6 +92,7 @@ class HomeCubit extends Cubit<HomeState> {
       ));
     }
   }
+
 
   // ================= SEARCH TAB =================
   Future<void> searchMoviesByName(String search) async {
@@ -116,10 +119,14 @@ class HomeCubit extends Cubit<HomeState> {
   }
 
   // ================= BROWSE TAB =================
-  Future<void> browseByGenre() async {
+  Future<void> browseByGenre({String? genre}) async {
     try {
       emit(state.copyWith(browseMoviesRequestState: RequestState.loading));
-      final response = await repo.listMoviesByGenre(genres[state.genreIndex]);
+      final response;
+      if(genre==null){
+        response = await repo.listMoviesByGenre(genres[state.genreIndex]);
+      }
+      else{response = await repo.listMoviesByGenre(genre);}
       emit(state.copyWith(
         browseMoviesRequestState: RequestState.success,
         moviesBrowseResponse: response,

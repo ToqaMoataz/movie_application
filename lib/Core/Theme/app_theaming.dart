@@ -24,7 +24,7 @@ class AppTheming{
 
       scaffoldBackgroundColor: AppColors.getBackgroundColor(),
       bottomNavigationBarTheme: BottomNavigationBarThemeData(
-          backgroundColor: AppColors.getDarkerPrimaryColor(),
+          backgroundColor: Colors.transparent,
           unselectedItemColor: AppColors.getIconColor(),
           selectedItemColor: AppColors.getAccentColor(),
           showSelectedLabels: false,

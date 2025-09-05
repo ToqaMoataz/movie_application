@@ -6,8 +6,9 @@ abstract class MoviesRepository{
 
   //search_movies ✅
   Future<MoviesResponse> searchMovies(String movieName);
-  //browse_movies
+  //browse_movies)
   Future<MoviesResponse> listMoviesByGenre(String genre);
+  Future<MoviesResponse> listLimitMoviesByGenre(String genre,int limit);
   //recent_movies
   Future<MoviesResponse> getRecentMovies();
 

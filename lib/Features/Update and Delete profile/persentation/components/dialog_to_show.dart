@@ -35,6 +35,8 @@ class DialogToShow extends StatelessWidget {
                 return GestureDetector(
                     onTap: () {
                       UpdateProfileCubit.get(context).setSelectedImage(userImages[index]);
+                      print("user image${userImages[index]}");
+                      print("user image${UpdateProfileCubit.get(context).state.selectedImage}");
                     },
                     child:Container(
                       height: 10.h,

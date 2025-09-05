@@ -18,54 +18,47 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider<HomeCubit>(
-      //create: (context)=>HomeCubit(MoviesRemoteRepository(),UserRepoImp()),
       create: (context) =>
       HomeCubit(MoviesRemoteRepository(),UserRepoImp())..loadHomeTab(),
 
       child:BlocConsumer<HomeCubit,HomeStates>(
           builder: (context,state){
-            return  Scaffold(
+            return Scaffold(
               extendBody: true,
+              backgroundColor: AppColors.getBackgroundColor(),
               body: returnTab(HomeCubit.get(context).state.currTabIndex),
               bottomNavigationBar: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 16),
                 child: Container(
                   decoration: BoxDecoration(
+                    color: AppColors.getDarkerPrimaryColor(),
                     borderRadius: BorderRadius.circular(16),
                   ),
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(16),
                     child: BottomNavigationBar(
+                      backgroundColor: Colors.transparent,
                       currentIndex: HomeCubit.get(context).state.currTabIndex,
                       elevation: 0,
+                      type: BottomNavigationBarType.fixed,
+                      showSelectedLabels: false,
+                      showUnselectedLabels: false,
                       onTap: (value) {
                         HomeCubit.get(context).setTabIndex(value);
                       },
                       items: const [
-                        BottomNavigationBarItem(
-                          icon: Icon(Icons.home_filled),
-                          label: 'Home',
-                        ),
-                        BottomNavigationBarItem(
-                          icon: Icon(Icons.search_rounded),
-                          label: 'Search',
-                        ),
-                        BottomNavigationBarItem(
-                          icon: Icon(Icons.explore),
-                          label: 'Explore',
-                        ),
-                        BottomNavigationBarItem(
-                          icon: Icon(Icons.person),
-                          label: 'Profile',
-                        ),
+                        BottomNavigationBarItem(icon: Icon(Icons.home_filled), label: 'Home'),
+                        BottomNavigationBarItem(icon: Icon(Icons.search_rounded), label: 'Search'),
+                        BottomNavigationBarItem(icon: Icon(Icons.explore), label: 'Explore'),
+                        BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
                       ],
                     ),
                   ),
                 ),
               ),
 
-
             );
+
           },
           listener: (context,state){}
       ),

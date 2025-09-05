@@ -27,29 +27,50 @@ class MoviesRemoteRepository implements MoviesRepository{
   }
 
   //browse_movies
+  @override
   Future<MoviesResponse> listMoviesByGenre(String genre) async {
-    try{
-    var response=await api.getApi(Endpoints.listMoviesEndpoint,params: {
-      "genre":genre
-    });
-    MoviesResponse result= MoviesResponse.fromJson(response.data);
-    return result;
-    }catch(e){
+    try {
+      var response = await api.getApi(
+        Endpoints.listMoviesEndpoint,
+        params: {
+          "genre": genre,
+        },
+      );
+      MoviesResponse result = MoviesResponse.fromJson(response.data);
+      return result;
+    } catch (e) {
       rethrow;
     }
   }
+  //browse_movies
+  @override
+  Future<MoviesResponse> listLimitMoviesByGenre(String genre,int limit) async {
+    try {
+      var response = await api.getApi(
+        Endpoints.listMoviesEndpoint,
+        params: {
+          "genre": genre,
+          "limit": limit,
+        },
+      );
+      MoviesResponse result = MoviesResponse.fromJson(response.data);
+      return result;
+    } catch (e) {
+      rethrow;
+    }
+  }
+
+
   //recent_movies
-  //recent_movies
+  @override
   Future<MoviesResponse> getRecentMovies() async {
     try {
       var response = await api.getApi(Endpoints.listMoviesEndpoint, params: {
         "sort_by": "year",
         "order_by": "desc",
-        "movie_count": 10
+        "limit": 10,
       });
       MoviesResponse result = MoviesResponse.fromJson(response.data);
-      print("Movieeeee lengthhhhh:${result.data?.movies?.length}");
-      print("Movieeeee countttttt:${result.data?.movieCount}");
       return result;
     }catch(e){
       rethrow;

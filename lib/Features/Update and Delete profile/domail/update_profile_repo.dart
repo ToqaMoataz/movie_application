@@ -38,7 +38,7 @@ class UpdateProfileRepoImp extends UpdateProfileRepo{
           'image': image,
         });
       } else {
-        return; // No update needed
+        return;
       }
     } on FirebaseException catch (e) {
       throw Exception("Failed to update user: ${e.message}");

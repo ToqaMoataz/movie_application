@@ -7,6 +7,7 @@ import 'package:movie_app/Features/HomeScreen/persentation/widgets/genre_card.da
 import '../../../../../../Core/Theme/app_colors.dart';
 import '../../../../../../Core/assets/app_images.dart';
 import '../../../../../moviesDetails/persentation/movie_details_screen.dart';
+import '../../../../data/local_data.dart';
 import '../../../HomeScreen cubit/cubit.dart';
 import '../../../HomeScreen cubit/state.dart';
 
@@ -22,8 +23,7 @@ class _HomeTabState extends State<HomeTab> {
   void initState() {
     super.initState();
     final cubit = HomeCubit.get(context);
-    cubit.loadHomeTab();   // ✅ get recent movies
-    cubit.getByGenre();    // ✅ fetch all genres once
+    cubit.getLimitedMoviesByGenre();
   }
 
   @override
@@ -113,12 +113,16 @@ class _HomeTabState extends State<HomeTab> {
                       final genreMap = state.moviesByGenreList[index];
                       final genre = genreMap.entries.first.key;
                       final response = genreMap.entries.first.value;
-
+                       int genreIndex=AppData.getMoviesGenres().indexOf(genre);
                       return Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 16,vertical: 12),
                         child: GenreCard(
                           genre: genre,
-                          movies: response.data?.movies ?? [],
+                          movies: response.data?.movies?.take(10).toList() ?? [],
+                          onTap: (){
+                            cubit.setGenreTabIndex(genreIndex);
+                            cubit.setTabIndex(2);
+                          },
                         ),
                       );
                     },
