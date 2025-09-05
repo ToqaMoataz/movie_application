@@ -51,8 +51,7 @@ class GenreCard extends StatelessWidget {
                       "genre": genre,
                       "movies": movies,
                     },
-                  );
-                },
+                  );},
                 child: Text("See More", style: GoogleFonts.roboto(
                   color: AppColors.getAccentColor(),
                   fontSize: 16.sp,

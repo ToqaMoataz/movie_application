@@ -50,8 +50,8 @@ flutter:
 
 
   assets:
-   - assets/images/
-   - assets/translations/
+    - assets/images/
+    - assets/translations/
 
 
   # fonts:
